@@ -7,8 +7,17 @@ import br.com.bancodedadosarquiteturacompleta.controller.ICrud;
 
 public class Cliente implements ICrud {
 
+    private int id; // Chave Primária no BD
     private String nome;
     private String email;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
