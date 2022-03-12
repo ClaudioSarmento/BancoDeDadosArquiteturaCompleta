@@ -1,11 +1,7 @@
 package br.com.bancodedadosarquiteturacompleta.model;
 
-import android.util.Log;
-
-import br.com.bancodedadosarquiteturacompleta.api.AppUtil;
-import br.com.bancodedadosarquiteturacompleta.controller.ICrud;
-
-public class Cliente implements ICrud {
+//POJO
+public class Cliente {
 
     private int id; // Chave Primária no BD
     private String nome;
@@ -33,25 +29,5 @@ public class Cliente implements ICrud {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public void incluir() {
-        Log.i(AppUtil.TAG, "incluir: Cliente nome: "+getNome());
-    }
-
-    @Override
-    public void alterar() {
-        Log.i(AppUtil.TAG, "alterar: Cliente");
-    }
-
-    @Override
-    public void deletar() {
-        Log.i(AppUtil.TAG, "deletar: Cliente");
-    }
-
-    @Override
-    public void listar() {
-        Log.i(AppUtil.TAG, "listar: Clientes");
     }
 }

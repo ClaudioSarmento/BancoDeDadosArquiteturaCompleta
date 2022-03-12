@@ -8,6 +8,7 @@ import android.util.Log;
 
 import br.com.bancodedadosarquiteturacompleta.api.AppUtil;
 import br.com.bancodedadosarquiteturacompleta.datamodel.ClienteDataModel;
+import br.com.bancodedadosarquiteturacompleta.datamodel.ProdutoDataModel;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -26,6 +27,8 @@ public class AppDataBase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(ClienteDataModel.criarTabela());
         Log.d(AppUtil.TAG,"onCreate: Tabela Cliente "+ ClienteDataModel.criarTabela());
+        db.execSQL(ProdutoDataModel.criarTabela());
+        Log.d(AppUtil.TAG,"onCreate: Tabela Produto "+ ProdutoDataModel.criarTabela());
 
     }
 
