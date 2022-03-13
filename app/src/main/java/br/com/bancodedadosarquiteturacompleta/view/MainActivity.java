@@ -2,10 +2,10 @@ package br.com.bancodedadosarquiteturacompleta.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import br.com.bancodedadosarquiteturacompleta.R;
+import br.com.bancodedadosarquiteturacompleta.api.AppUtil;
 import br.com.bancodedadosarquiteturacompleta.controller.ClienteController;
 import br.com.bancodedadosarquiteturacompleta.model.Cliente;
 
@@ -22,7 +22,13 @@ public class MainActivity extends AppCompatActivity {
         Cliente cliente = new Cliente();
         cliente.setNome("Claudio");
         cliente.setEmail("teste@gmail.com");
-        clienteController.incluir(cliente);
+        if(clienteController.incluir(cliente)){
+            AppUtil.mostrarMensagemToast(getApplicationContext(),"Cliente inserido com sucesso...");
+        }else{
+            AppUtil.mostrarMensagemToast(getApplicationContext(),"Erro ao inserir cliente...");
+        }
+
+        clienteController.deletar(3);
 
     }
 }
