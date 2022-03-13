@@ -1,7 +1,9 @@
 package br.com.bancodedadosarquiteturacompleta.datasource;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
@@ -35,5 +37,22 @@ public class AppDataBase extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
 
+    }
+
+    /**
+     * Método para incluir dados no banco de dados
+     * @return
+     */
+    public boolean insert(String tabela, ContentValues dados){
+        boolean retorno = false;
+        db = getWritableDatabase();
+        try{
+            retorno = db.insert(tabela,null,dados) > 0 ;
+        }catch (SQLiteException e){
+            Log.e(AppUtil.TAG,e.getMessage());
+        }finally {
+            //db.close();
+        }
+        return retorno;
     }
 }
